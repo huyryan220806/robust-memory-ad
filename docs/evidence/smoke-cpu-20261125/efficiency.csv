@@ -1,0 +1,2 @@
+run_id,measurement_id,image_group,device,kind,baseline_commit,seed,budget,num_patches,bank_index_bytes,bank_index_MB,warmup,n,p50_ms,p95_ms,rss_peak_observed_bytes,torch_peak_allocated_bytes,timings_file,memory_file
+smoke-only,smoke-cpu-20261125-02,synthetic,cpu,instrumentation_smoke,not-a-model,,,,0,0.0,10,50,0.40915,0.6510599999999999,30552064,,timings.csv,memory.json

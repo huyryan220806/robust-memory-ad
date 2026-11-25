@@ -1,0 +1,5 @@
+{
+  "first_half_p95_ms": 0.6683599999999998,
+  "second_half_p95_ms": 0.5814999999999999,
+  "verdict": "manual review required; repeat in a new measurement_id if p95 varies"
+}

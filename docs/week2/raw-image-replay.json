@@ -1,0 +1,22 @@
+{
+  "run_id": "pilot01-greedy-s0",
+  "image_id": "vial/test_public/bad/000_regular",
+  "device": "cpu",
+  "torch": "2.8.0+cpu",
+  "torchvision": "0.23.0+cpu",
+  "faiss": "1.16.0",
+  "patchcore_commit": "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+  "image_sha256": "97065b13761d98ddc0ce6fb12a191c79fcaa162d64fb931809d932189f2ed7a4",
+  "weights_sha256": "95faca4d11227dddf8633dbb5ff6c8a9003c1aa5b8945c73834b8007b10950b8",
+  "index_sha256": "06b86b5133aaffb915172385628d5c70cb9d6ddd96c059b80bc670f9fbedfd99",
+  "bank_entries": 2281,
+  "map_shape": [
+    224,
+    224
+  ],
+  "score": 6.836820602416992,
+  "reference": 6.836815,
+  "absolute_difference": 5.602416992545045e-06,
+  "absolute_tolerance": 0.001,
+  "passed": true
+}

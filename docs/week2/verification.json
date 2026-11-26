@@ -1,0 +1,114 @@
+{
+  "input_sha256": {
+    "manifest_sha256": "5b7f15ef99071efddafa67f1de6918fd3cad33810571293beeed038193507e62",
+    "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281"
+  },
+  "runs": [
+    {
+      "run_id": "pilot01-full-s0",
+      "index_bytes": 934477869,
+      "regular_to_underexposed_alerts": {
+        "good": {
+          "00": 5,
+          "01": 0,
+          "10": 0,
+          "11": 0
+        },
+        "bad": {
+          "00": 9,
+          "01": 0,
+          "10": 0,
+          "11": 6
+        }
+      },
+      "auroc_recomputed": 0.887891156462585,
+      "pixel_ap_from_team": 0.3410580330738612,
+      "threshold": 3.9636920000000004,
+      "counts_fp_good_tp_bad_tpSmall_small": [
+        0,
+        35,
+        48,
+        105,
+        8,
+        21
+      ]
+    },
+    {
+      "run_id": "pilot01-random-s0",
+      "index_bytes": 9343021,
+      "regular_to_underexposed_alerts": {
+        "good": {
+          "00": 5,
+          "01": 0,
+          "10": 0,
+          "11": 0
+        },
+        "bad": {
+          "00": 10,
+          "01": 0,
+          "10": 0,
+          "11": 5
+        }
+      },
+      "auroc_recomputed": 0.7518367346938776,
+      "pixel_ap_from_team": 0.3392067384189934,
+      "threshold": 5.870096000000001,
+      "counts_fp_good_tp_bad_tpSmall_small": [
+        0,
+        35,
+        41,
+        105,
+        5,
+        21
+      ]
+    },
+    {
+      "run_id": "pilot01-greedy-s0",
+      "index_bytes": 9343021,
+      "regular_to_underexposed_alerts": {
+        "good": {
+          "00": 3,
+          "01": 2,
+          "10": 0,
+          "11": 0
+        },
+        "bad": {
+          "00": 5,
+          "01": 3,
+          "10": 0,
+          "11": 7
+        }
+      },
+      "auroc_recomputed": 0.8914285714285715,
+      "pixel_ap_from_team": 0.3249051337755158,
+      "threshold": 4.402119000000001,
+      "counts_fp_good_tp_bad_tpSmall_small": [
+        2,
+        35,
+        54,
+        105,
+        7,
+        21
+      ]
+    }
+  ],
+  "physical_vials_good_bad": [
+    5,
+    15
+  ],
+  "small_cutoff_0_5pct_unique_bad_vials": [
+    "007",
+    "010",
+    "011"
+  ],
+  "source_commits": {
+    "baseline": "6d7e8d8f0127838aae8f9c2dd3f2c85a87b94141",
+    "evaluation": "56b0221824c457aa748d2e10638c8e11581f82f8",
+    "profiling": "15ab4dac972d60885aa6ec229d68727d52523bfe"
+  },
+  "instrument_only_cpu_ms": {
+    "p50": 0.40915,
+    "p95": 0.65106,
+    "n": 50
+  }
+}

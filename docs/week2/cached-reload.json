@@ -1,0 +1,11 @@
+{
+  "route": "cached 784x1024 features to exhaustive L2 nearest neighbor on downloaded flat index",
+  "run_id": "pilot01-greedy-s0",
+  "image_id": "vial/test_public/bad/000_regular",
+  "score": 6.836818695068359,
+  "csv_score": 6.836815,
+  "abs_diff": 3.695068359732545e-06,
+  "cpu_abs_tol": 0.001,
+  "index_sha256": "06b86b5133aaffb915172385628d5c70cb9d6ddd96c059b80bc670f9fbedfd99",
+  "input_feature_sha256": "c845c96282d59c4d0130b9fd4e521b279559ce18dbbe9e9c84a409898647c3c6"
+}

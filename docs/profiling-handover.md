@@ -57,3 +57,15 @@ Không cộng hàng `lighting_group=all` với các nhóm con. `--lighting-group
 ## 4. Phần còn chờ Huy
 
 Phạm vi đo chính thức chưa được chốt: ảnh RAM sau decode/convert RGB, tiền xử lý, các chuyển thiết bị bắt buộc của pipeline và thời điểm score/map CPU sẵn. Bộ đo độc lập đã có nhưng chưa có benchmark PatchCore chính thức của Tiến. Huy vận hành train/Colab; Tiến bàn giao công cụ và nhận log gốc để tổng hợp sau khi thống nhất phạm vi.
+
+## Kết quả kiểm CPU ngày 26/11/2026
+
+Đã nạp ba bank trên máy Tiến và kiểm cùng một ảnh tham chiếu. Số dưới đây truy được về JSON trong `docs/evidence/handover-20261126/`; đây là kiểm tính đúng và byte lưu trữ.
+
+| run_id | Patch | Index byte | CPU score | Chênh lệch tuyệt đối |
+|---|---:|---:|---:|---:|
+| pilot01-full-s0 | 228144 | 934477869 | 3.275921 | 3.87e-06 |
+| pilot01-random-s0 | 2281 | 9343021 | 5.418678 | 4.28e-06 |
+| pilot01-greedy-s0 | 2281 | 9343021 | 4.199203 | 3.51e-06 |
+
+Mỗi bank còn 230 byte params. Bảng CSV ghi riêng index, params và tổng hai thành phần; không cộng selected_indices/feature cache vào deployment bank. Trọng số backbone tách riêng, hash trong report. Cả ba đạt `atol=1e-3, rtol=0` trên CPU; chưa có số đo L4 hoặc benchmark latency/peak memory của Tiến.

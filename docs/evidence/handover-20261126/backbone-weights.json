@@ -1,0 +1,10 @@
+{
+  "role": "backbone_weights",
+  "weights": "IMAGENET1K_V1",
+  "file": "wide_resnet50_2-95faca4d.pth",
+  "bytes": 138223492,
+  "MB": 138.223492,
+  "sha256": "95faca4d11227dddf8633dbb5ff6c8a9003c1aa5b8945c73834b8007b10950b8",
+  "source_url": "https://download.pytorch.org/models/wide_resnet50_2-95faca4d.pth",
+  "included_in_bank_index_bytes": false
+}

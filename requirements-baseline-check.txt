@@ -1,0 +1,10 @@
+# Use the baseline's PyTorch/torchvision CUDA environment on Colab L4.
+# Local CPU verification records its own exact installed versions in the report.
+faiss-cpu==1.16.0
+timm==1.0.31
+pretrainedmodels==0.7.4
+scipy
+scikit-learn
+scikit-image
+matplotlib
+requests

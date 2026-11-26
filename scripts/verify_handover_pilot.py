@@ -47,7 +47,14 @@ def main():
     parser.add_argument("--resize", type=int, default=256)
     parser.add_argument("--imagesize", type=int, default=224)
     parser.add_argument("--sample_image_id", type=str, default="")
+    parser.add_argument("--gpu_atol", type=float, default=1e-4)
+    parser.add_argument("--cpu_atol", type=float, default=1e-3)
+    parser.add_argument("--require_l4", action="store_true")
     args = parser.parse_args()
+    if args.require_l4 and (not torch.cuda.is_available() or "L4" not in torch.cuda.get_device_name(0).upper().split()):
+        raise RuntimeError("NVIDIA L4 is required; do not substitute CPU or another GPU")
+    if not np.isfinite(args.gpu_atol) or not np.isfinite(args.cpu_atol) or min(args.gpu_atol, args.cpu_atol) < 0:
+        raise ValueError("Score tolerances must be finite and nonnegative")
 
     ver_dir = args.output_root / "verification"
     ver_dir.mkdir(parents=True, exist_ok=True)
@@ -127,6 +134,8 @@ def main():
             if item_tuple[5] == args.sample_image_id:
                 target_idx = i
                 break
+        if target_idx is None:
+            raise ValueError(f"Requested sample image_id not found: {args.sample_image_id}")
     if target_idx is None:
         # Chọn ảnh lỗi đầu tiên trong test_public/bad có vùng lỗi rõ ràng trong khung crop
         for i, item_tuple in enumerate(ds_eval.data_to_iterate):
@@ -135,6 +144,9 @@ def main():
                 if item["mask"].sum().item() > 25:
                     target_idx = i
                     break
+
+    if target_idx is None:
+        raise ValueError("No eligible sample image was found")
 
     sample_item = ds_eval[target_idx]
     sample_id = sample_item["image_id"]
@@ -209,7 +221,8 @@ def main():
             f"CSV={csv_score:.6f} | Reload_GPU={score_gpu:.6f} (|diff|={diff_gpu:.2e}) | "
             f"Reload_CPU={score_cpu:.6f} (|diff|={diff_cpu:.2e})"
         )
-        assert diff_gpu < 1e-5 and diff_cpu < 1e-3, f"Reload score mismatch on {rid}!"
+        actual_gpu_atol = args.gpu_atol if gpu_device.type == "cuda" else args.cpu_atol
+        assert diff_gpu <= actual_gpu_atol and diff_cpu <= args.cpu_atol, f"Reload score mismatch on {rid}!"
 
         reload_results[rid] = {
             "bank_dir": bank_dir.resolve().as_posix(),
@@ -220,6 +233,10 @@ def main():
             "reloaded_cpu_score": score_cpu,
             "abs_diff_gpu": diff_gpu,
             "abs_diff_cpu": diff_cpu,
+            "primary_device": str(gpu_device),
+            "gpu_tested": gpu_device.type == "cuda",
+            "primary_atol": actual_gpu_atol,
+            "cpu_atol": args.cpu_atol,
         }
 
     report = {

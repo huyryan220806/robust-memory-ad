@@ -1,0 +1,50 @@
+{
+  "protocol": {
+    "protocol_version": "0.3-proposed",
+    "status": "exploratory_pending_team_review",
+    "calibration_split": "validation",
+    "evaluation_split": "test_public",
+    "calibration_fpr_targets": [
+      0.01,
+      0.05,
+      0.1
+    ],
+    "threshold_rule": "nextafter_upper_order_statistic",
+    "alarm_rule": "score >= threshold",
+    "small_component_area_cutoffs": [
+      0.001,
+      0.005,
+      0.01
+    ],
+    "component_connectivity": 8,
+    "small_area_denominator": "full_original_image",
+    "small_image_rule": "all_original_components_at_or_below_cutoff",
+    "mask_foreground_rule": "raw_grayscale >= 128; require values {0,255}",
+    "resize": 256,
+    "center_crop": 224,
+    "pixel_scope": "all test_public images, including zero masks for labeled good images"
+  },
+  "manifest_sha256": "5b7f15ef99071efddafa67f1de6918fd3cad33810571293beeed038193507e62",
+  "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281",
+  "config_sha256": "79fecf5620054dca915e0b227898c20081245da78907865228bf0821abf77ea2",
+  "script_sha256": "82dcf094ebbfc33eb09d1667e177aae4e49276b50409d8e55ed5c1e0f56711de",
+  "baseline_commit": "6d7e8d8f0127838aae8f9c2dd3f2c85a87b94141",
+  "evaluated_masks": 105,
+  "evaluated_maps": 543,
+  "masks_nonempty_after_crop": 105,
+  "masks_losing_pixels_in_crop": 7,
+  "components_lost_resize": 0,
+  "components_lost_crop": 0,
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.0",
+    "scikit-learn": "1.9.0",
+    "Pillow": "12.2.0"
+  },
+  "limitations": [
+    "Exploratory policies pending team approval.",
+    "test_public already inspected during development; not untouched final test.",
+    "No independent specimen confirmation or confidence intervals.",
+    "No baseline re-training, latency measurement, or AU-PRO claimed."
+  ]
+}

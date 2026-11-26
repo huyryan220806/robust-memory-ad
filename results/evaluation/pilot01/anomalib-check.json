@@ -1,0 +1,42 @@
+{
+  "versions": {
+    "anomalib": "2.2.0",
+    "torchmetrics": "1.8.2",
+    "torch": "2.6.0+cu124",
+    "scikit-learn": "1.9.0"
+  },
+  "toy": {
+    "anomalib": 1.0,
+    "sklearn": 1.0,
+    "rank": 1.0,
+    "absolute_difference": 0.0
+  },
+  "ties": {
+    "anomalib": 0.5,
+    "sklearn": 0.5,
+    "rank": 0.5,
+    "absolute_difference": 0.0
+  },
+  "runs": {
+    "pilot01-full-s0": {
+      "anomalib": 0.8878911733627319,
+      "sklearn": 0.887891156462585,
+      "rank": 0.887891156462585,
+      "absolute_difference": 1.6900146948550798e-08
+    },
+    "pilot01-greedy-s0": {
+      "anomalib": 0.891428530216217,
+      "sklearn": 0.8914285714285715,
+      "rank": 0.8914285714285715,
+      "absolute_difference": 4.1212354418007635e-08
+    },
+    "pilot01-random-s0": {
+      "anomalib": 0.7518367767333984,
+      "sklearn": 0.7518367346938775,
+      "rank": 0.7518367346938776,
+      "absolute_difference": 4.2039520975478695e-08
+    }
+  },
+  "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281",
+  "score_transform": "per-run positive affine minmax to [0,1]; float64; rankings preserved"
+}

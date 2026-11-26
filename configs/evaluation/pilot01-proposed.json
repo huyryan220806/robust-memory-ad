@@ -1,0 +1,17 @@
+{
+  "protocol_version": "0.3-proposed",
+  "status": "exploratory_pending_team_review",
+  "calibration_split": "validation",
+  "evaluation_split": "test_public",
+  "calibration_fpr_targets": [0.01, 0.05, 0.10],
+  "threshold_rule": "nextafter_upper_order_statistic",
+  "alarm_rule": "score >= threshold",
+  "small_component_area_cutoffs": [0.001, 0.005, 0.01],
+  "component_connectivity": 8,
+  "small_area_denominator": "full_original_image",
+  "small_image_rule": "all_original_components_at_or_below_cutoff",
+  "mask_foreground_rule": "raw_grayscale >= 128; require values {0,255}",
+  "resize": 256,
+  "center_crop": 224,
+  "pixel_scope": "all test_public images, including zero masks for labeled good images"
+}

@@ -1,6 +1,6 @@
 # Đánh giá pilot của Đỗ Hoàng Phúc
 
-Ngày 26/11/2026. Nhánh `evaluation/do-hoang-phuc-pilot01`, phát triển từ baseline commit `6d7e8d8f0127838aae8f9c2dd3f2c85a87b94141`.
+Ngày 26/11/2026. Nhánh `evaluation/pilot`, phát triển từ baseline commit `6d7e8d8f0127838aae8f9c2dd3f2c85a87b94141`.
 
 ## Phạm vi và trạng thái
 

@@ -1,0 +1,82 @@
+{
+  "run_id": "pilot01-full-s0",
+  "mode": "full",
+  "seed": 0,
+  "category": "vial",
+  "patchcore_inspection_commit": "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "dtype": "float32",
+  "preprocessing": {
+    "resize": [
+      256,
+      256
+    ],
+    "center_crop": [
+      224,
+      224
+    ],
+    "square_resize": true,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "backbone": {
+    "name": "wideresnet50",
+    "torchvision_arch": "wide_resnet50_2",
+    "weights": "IMAGENET1K_V1 (pretrained=True)",
+    "layers_to_extract_from": [
+      "layer2",
+      "layer3"
+    ],
+    "patchsize": 3,
+    "patchstride": 1,
+    "pretrain_embed_dimension": 1024,
+    "target_embed_dimension": 1024
+  },
+  "sampler": {
+    "name": "IdentitySampler (Full Bank)",
+    "approximate": false,
+    "random_projection": false,
+    "projection_dim": null,
+    "num_starting_points": null
+  },
+  "patch_counts": {
+    "num_train_images": 291,
+    "patches_per_image": 784,
+    "N_total_before_reduction": 228144,
+    "coreset_percentage": 1.0,
+    "B_after_reduction": 228144,
+    "unique_selected_indices": 228144,
+    "min_selected_index": 0,
+    "max_selected_index": 228143
+  },
+  "bank_storage": {
+    "bank_dir": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/bank",
+    "faiss_index_path": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/bank/nnscorer_search_index.faiss",
+    "patchcore_params_path": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/bank/patchcore_params.pkl",
+    "selected_indices_npy": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/bank/selected_indices.npy",
+    "faiss_ntotal": 228144,
+    "faiss_index_size_bytes": 934477869,
+    "faiss_index_size_MiB": 891.1875,
+    "params_size_bytes": 230
+  },
+  "evaluation_summary": {
+    "total_eval_images": 181,
+    "validation_good_images": 41,
+    "test_public_images": 140,
+    "test_public_image_auroc": 0.8879,
+    "selection_time_sec": 0.0007,
+    "faiss_fit_time_sec": 0.6871,
+    "nn_query_and_map_time_sec": 135.3224,
+    "predictions_csv": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/predictions.csv",
+    "anomaly_maps_dir": "D:/paper1/outputs/pilot01/runs/pilot01-full-s0/anomaly_maps"
+  },
+  "command": "D:\\paper1\\.venv-patchcore\\Scripts\\python.exe D:\\paper1\\robust-memory-ad\\scripts\\run_baseline_pilot.py --mode full --run_id pilot01-full-s0 --seed 0 --budget_b 2281"
+}

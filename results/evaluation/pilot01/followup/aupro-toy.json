@@ -1,0 +1,162 @@
+{
+  "scope": "synthetic teaching fixtures only; not pilot AU-PRO",
+  "script_sha256": "80304845cf107165586ae625a3ec1c1d73438372a26761d2339db8117bf9b3b3",
+  "convention": "8-connected regions per image; equal region weight; global negative pixels; grouped ties; linear clipping at beta; divide by beta",
+  "fixture": {
+    "shape": [
+      2,
+      8,
+      8
+    ],
+    "regions": 2,
+    "positive_pixels": 4,
+    "negative_pixels": 124
+  },
+  "region_weighting_example": {
+    "detected_pixels": 1,
+    "positive_pixels": 4,
+    "pixel_recall": 0.25,
+    "region_overlaps": [
+      1.0,
+      0.0
+    ],
+    "PRO": 0.5
+  },
+  "results": [
+    {
+      "case": "perfect",
+      "fpr_limit": 0.05,
+      "expected_under_declared_interpolation": 1.0,
+      "independent_result": 0.9999999999999999,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999999
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": 0.5,
+      "anomalib_status": "diagnostic_difference"
+    },
+    {
+      "case": "perfect",
+      "fpr_limit": 0.3,
+      "expected_under_declared_interpolation": 1.0,
+      "independent_result": 0.9999999999999998,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999999
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": 0.5,
+      "anomalib_status": "diagnostic_difference"
+    },
+    {
+      "case": "reversed",
+      "fpr_limit": 0.05,
+      "expected_under_declared_interpolation": 0.0,
+      "independent_result": 0.0,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": null,
+      "anomalib_status": "diagnostic_nonfinite",
+      "anomalib_nonfinite_value": "nan"
+    },
+    {
+      "case": "reversed",
+      "fpr_limit": 0.3,
+      "expected_under_declared_interpolation": 0.0,
+      "independent_result": 0.0,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": null,
+      "anomalib_status": "diagnostic_nonfinite",
+      "anomalib_nonfinite_value": "nan"
+    },
+    {
+      "case": "all_tied",
+      "fpr_limit": 0.05,
+      "expected_under_declared_interpolation": 0.025,
+      "independent_result": 0.025000000000000005,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": null,
+      "anomalib_status": "diagnostic_nonfinite",
+      "anomalib_nonfinite_value": "nan"
+    },
+    {
+      "case": "all_tied",
+      "fpr_limit": 0.3,
+      "expected_under_declared_interpolation": 0.15,
+      "independent_result": 0.15,
+      "curve": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "anomalib_result": null,
+      "anomalib_status": "diagnostic_nonfinite",
+      "anomalib_nonfinite_value": "nan"
+    }
+  ],
+  "versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.0",
+    "anomalib": "2.2.0",
+    "torch": "2.6.0+cu124",
+    "torchmetrics": "1.8.2"
+  }
+}

@@ -20,11 +20,11 @@ Image AUROC tính trên 35 ảnh chuẩn và 105 ảnh lỗi. Pixel AP gộp 7.0
 
 Anomalib 2.2.0, sklearn và công thức hạng khớp AUROC với sai số tuyệt đối tối đa 4,3 e-8. Ví dụ bốn điểm có đáp án cho 1,0; ví dụ hai điểm bằng nhau khác lớp cho 0,5. [Log kiểm Anomalib](../results/evaluation/pilot01/anomalib-check.json).
 
-Greedy có AUROC 0,9867 ở regular nhưng 0,6800 ở underexposed; Full ở underexposed là 0,8667. Chênh lệch này là mô tả của một category/seed. Từng nhóm chỉ có 5 good+15 bad và có thể chứa mẫu vật lặp giữa ánh sáng; không kết luận ý nghĩa thống kê hoặc nguyên nhân chỉ từ bảng.
+Greedy có AUROC 0,9867 ở regular nhưng 0,6800 ở underexposed; Full ở underexposed là 0,8667. Chênh lệch này là mô tả của một category/seed. Từng nhóm chỉ có 5 good+15 bad; Hữu Phúc xác nhận cùng 20 lọ lặp lại giữa các mức sáng. Không kết luận ý nghĩa thống kê hoặc nguyên nhân chỉ từ bảng.
 
 ## Ví dụ vận hành đề xuất: mục tiêu calibration FPR 5%
 
-Ngưỡng được lấy riêng từng run từ cùng 41 validation good; mỗi run có 2/41 cảnh báo trên validation. Bảng dưới dùng test_public độc lập với validation.
+Ngưỡng được lấy riêng từng run từ cùng 41 validation good; mỗi run có 2/41 cảnh báo trên validation. Bảng dưới dùng ảnh test_public thuộc split khác validation; chưa xác nhận tính độc lập của mẫu vật giữa hai split.
 
 | Cấu hình | Ngưỡng (làm tròn để đọc) | Báo nhầm /35 good | Phát hiện /105 bad | Recall tất cả lỗi |
 |---|---:|---:|---:|---:|
@@ -64,7 +64,7 @@ Hai hình overlay `case_fp.png` và `case_fn.png` đã tạo và kiểm tại m�
 - 7 test qua: AUROC, ngưỡng có điểm bằng nhau, dữ liệu calibration sai, liên thông 8, mất vùng do crop, thiếu/trùng asset, khớp resize/crop với torchvision.
 - 24 hàng pixel_metrics,216 hàng quality (3 run × 3 alpha × 3 cutoff × 8 nhóm),9 ngưỡng,1.260 quyết định ảnh và 648 hash mask/map.
 - Huy cần rà quy tắc calibration, mức cắt/ROI, ảnh nhiều cỡ lỗi và phạm vi pilot/final. Không xem lời phê duyệt sau khi đã xem test là đăng ký giao thức trước thí nghiệm.
-- Hữu Phúc cần xác nhận tiền tố ID qua 7 mức sáng có cùng mẫu vật/cảnh không. Tên file hoặc mask giống nhau chưa đủ để xác nhận độc lập mẫu.
+- Hữu Phúc đã xác nhận cùng lọ/cảnh qua bảy mức sáng; cần làm rõ cách lấy mẫu và quan hệ mẫu vật giữa các split trước khi suy luận thống kê. Xem [ghi nhận bàn giao](specimen-handoff.md).
 - Tiến ghép theo run ID và báo thời gian đo riêng; không dùng thời gian query theo batch của baseline làm p50/p95.
 - AU-PRO, seed/category bổ sung, phương pháp mới và test nhãn ẩn thuộc giai đoạn tiếp theo; không được trình bày như đã hoàn tất ở đây.
 

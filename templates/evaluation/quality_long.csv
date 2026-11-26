@@ -1,0 +1,1 @@
+run_id,category,split,lighting_group,evaluation_set_id,protocol_version,calibration_id,target_calibration_fpr,threshold,small_definition_id,small_area_cutoff,metric,numerator,denominator,value,missing_reason,status,log_path

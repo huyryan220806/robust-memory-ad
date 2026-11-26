@@ -49,7 +49,7 @@ Manifest gồm 472 ảnh: 291 train good, 41 validation good, 140 test_public (3
 - Train chỉ dựng bank, không tham gia đánh giá này.
 - Validation good dùng hiệu chỉnh ngưỡng. Tỷ lệ cảnh báo trên validation là chẩn đoán hiệu chỉnh, không phải FPR độc lập.
 - Test_public dùng đo chất lượng pilot, phân tích theo ánh sáng, tìm ca lỗi.
-- Kiểm ID riêng trong split không chứng minh ảnh/mẫu vật độc lập. Tên test có 20 tiền tố mẫu lặp qua 7 mức sáng; chưa xác nhận cùng mẫu vật hay cùng cảnh. Chưa báo khoảng tin cậy giả định 140 mẫu độc lập.
+- Hữu Phúc xác nhận 20 lọ/cảnh test được chụp lặp qua bảy mức sáng: 5 good và 15 bad; định danh là `(good hoặc bad, tiền tố)`, vì good/000 và bad/000 khác nhau. Thiết kế theo ánh sáng là đo lặp theo mẫu vật; không coi 140 ảnh là 140 đơn vị độc lập. Xem [ghi nhận và phân tích ghép cặp](specimen-handoff.md). Chưa có bằng chứng về cách lấy mẫu để khẳng định tính độc lập thống kê giữa các lọ hoặc giữa validation và test.
 
 ## Ngưỡng cảnh báo đề xuất
 

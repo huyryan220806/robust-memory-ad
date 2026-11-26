@@ -1,6 +1,6 @@
 # Bộ đo profiling độc lập — Lê Quyết Tiến
 
-Cập nhật **25/11/2026**. Bản bàn giao này chỉ chứa dụng cụ độc lập đã tự kiểm trên CPU và log giả lập. **Chưa có kết quả PatchCore hoặc L4.** Thiết bị đo chính thức được Huy xác nhận qua Tiến là NVIDIA L4 trên Google Colab; chưa chạy trên thiết bị đó.
+Cập nhật **26/11/2026**. Dụng cụ đo đã tự kiểm trên CPU; phần kiểm bank và ghép bảng chất lượng thật được bổ sung trong [hướng dẫn bàn giao](profiling-handover.md). **Chưa có benchmark PatchCore hoặc số đo L4 của Tiến.** Huy phụ trách train và Colab; phần của Tiến là dụng cụ đo, kiểm đầu vào và tổng hợp log.
 
 ## Phần đã hoàn thành và có trong PR
 
@@ -10,7 +10,7 @@ Cập nhật **25/11/2026**. Bản bàn giao này chỉ chứa dụng cụ độ
 - Helper `measure_selection` ghi thời gian một callback chọn coreset với metadata do bên gọi cung cấp; đã kiểm bằng callback giả lập.
 - Bảy phép kiểm tự động và log smoke CPU gồm 10 warm-up + 50 mẫu đo.
 
-Các điểm tích hợp mô hình và thông số chính thức sẽ bổ sung sau khi nhóm trả lời. PR hiện tại không chứa adapter PatchCore, config baseline, notebook Colab hoặc script ghép chất lượng chưa thống nhất đầu vào.
+Đã nhận bank/config và schema chất lượng từ hai bạn Phúc. PR có công cụ kiểm bank và ghép chất lượng theo schema đã xác nhận; phạm vi timing mô hình chính thức vẫn chờ Huy. Không bổ sung notebook Colab vào phần việc của Tiến.
 
 ## Chạy phần đã tự kiểm
 

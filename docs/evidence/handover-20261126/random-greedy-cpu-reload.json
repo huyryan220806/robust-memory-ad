@@ -1,0 +1,87 @@
+{
+  "kind": "bank_reload_correctness_only",
+  "device": "cpu",
+  "created_utc": "2026-11-26T07:24:41.630855+00:00",
+  "device_name": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "patchcore_commit": "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+  "verifier_source_sha256": "ecefc5e2a0e4126278d8f8c7b76ddf5b2232de8463b9b0f7ea84941756cf5d3f",
+  "baseline_checks_source_sha256": "5082c50509db73bafe5845a656f4bf7eb9fe0a7d5ef8f7ed39cb250de3f36580",
+  "dataset_source_sha256": "7a10a996da10bb530bdea6ba06108c47194d79b48a2cf2e27b1ed8226e2ffadb",
+  "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281",
+  "image_sha256": "49c73d9ee3f8a02a9efca0c8d6eb5c239b6671a7e90754464f7bff841f31df8f",
+  "weights": {
+    "name": "IMAGENET1K_V1",
+    "url": "https://download.pytorch.org/models/wide_resnet50_2-95faca4d.pth",
+    "sha256": "95faca4d11227dddf8633dbb5ff6c8a9003c1aa5b8945c73834b8007b10950b8"
+  },
+  "environment": {
+    "python": "3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)]",
+    "os": "Windows-11-10.0.26200-SP0",
+    "torch": "2.12.1+cpu",
+    "torchvision": "0.27.1+cpu",
+    "faiss": "1.16.0",
+    "numpy": "2.2.2",
+    "cuda": null,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": false,
+    "packages": {
+      "timm": "1.0.31",
+      "pretrainedmodels": "0.7.4",
+      "scipy": "1.15.2",
+      "Pillow": "12.3.0"
+    }
+  },
+  "all_passed": true,
+  "results": [
+    {
+      "run_id": "pilot01-random-s0",
+      "image_id": "vial/test_public/bad/011_overexposed",
+      "expected_score": 5.418674,
+      "actual_score": 5.418678283691406,
+      "absolute_difference": 4.283691406037349e-06,
+      "atol": 0.001,
+      "rtol": 0,
+      "passed": true,
+      "num_patches": 2281,
+      "embedding_dim": 1024,
+      "faiss_index_type": "IndexFlatL2",
+      "faiss_threads": 4,
+      "index_bytes": 9343021,
+      "index_MB": 9.343021,
+      "params_bytes": 230,
+      "index_sha256": "211e06f2deb04c34821b94dde950d5db3bf5572ebfb0d6ab8d2e1f473b70dc6b",
+      "params_sha256": "7c2728899e9e4aeca619d5c6f24ad47456c1603cc16e4c846a80f002c6ddc8b4",
+      "selected_indices_sha256": "2a876e96768c2ce290e9a7fb1801fd630f242ac5cd50535fa76067f04d5cf1fe",
+      "map_shape": [
+        224,
+        224
+      ],
+      "map_finite": true
+    },
+    {
+      "run_id": "pilot01-greedy-s0",
+      "image_id": "vial/test_public/bad/011_overexposed",
+      "expected_score": 4.199207,
+      "actual_score": 4.1992034912109375,
+      "absolute_difference": 3.5087890628560103e-06,
+      "atol": 0.001,
+      "rtol": 0,
+      "passed": true,
+      "num_patches": 2281,
+      "embedding_dim": 1024,
+      "faiss_index_type": "IndexFlatL2",
+      "faiss_threads": 4,
+      "index_bytes": 9343021,
+      "index_MB": 9.343021,
+      "params_bytes": 230,
+      "index_sha256": "06b86b5133aaffb915172385628d5c70cb9d6ddd96c059b80bc670f9fbedfd99",
+      "params_sha256": "7c2728899e9e4aeca619d5c6f24ad47456c1603cc16e4c846a80f002c6ddc8b4",
+      "selected_indices_sha256": "3197992dca0c773137faad21fe62b46bcf6c69f3bf1751087464c49d0fdf33c5",
+      "map_shape": [
+        224,
+        224
+      ],
+      "map_finite": true
+    }
+  ]
+}

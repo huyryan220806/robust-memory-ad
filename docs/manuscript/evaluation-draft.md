@@ -1,6 +1,6 @@
 # Evaluation methods and pilot results — working draft
 
-26 November 2026 · Prepared for review by Đỗ Hoàng Phúc and coauthors. **Bản nháp tiếng Anh từ pilot đã kiểm; chưa phải phần kết quả xác nhận của paper.** Ngưỡng, định nghĩa lỗi nhỏ và thiết kế thí nghiệm tiếp theo còn chờ nhóm rà. Public test đã được xem trong quá trình phát triển.
+26 November 2026; updated 27 November 2026 · Prepared for review by Đỗ Hoàng Phúc and coauthors. **Bản nháp pilot thăm dò, chưa phải kết quả xác nhận.** Huy đã chọn mốc 5% và cutoff 0,5% sau khi kết quả đã có; thiết kế thí nghiệm xác nhận còn chờ nhóm rà.
 
 ## Evaluation methods
 
@@ -10,7 +10,7 @@ Higher scores indicated greater abnormality. Image AUROC was computed from the s
 
 For exploratory image-level operating points, we considered calibration targets alpha in {0.01, 0.05, 0.10}. For each run, let the 41 validation scores be sorted in ascending order and let k=floor(41 alpha). The threshold was the next representable float64 value above the score at zero-based index 41−k−1; an image was flagged when its score was greater than or equal to this threshold. This limits empirical validation alarms to at most k, including ties, without guaranteeing the population false-positive rate (FPR). Each threshold was held fixed across test lighting groups.
 
-We also explored small-defect image recall. Eight-connected components were extracted from original-resolution masks. An anomalous image qualified only when every component occupied at most a specified fraction of the entire original image area. We considered cutoffs of 0.1%, 0.5%, and 1%. This metric measures image-level detection among eligible images, not localization recall of individual regions. Empty eligible sets were reported as unavailable. Operating points and size cutoffs remain exploratory and are not claimed to have been preregistered.
+We also explored small-defect image recall. Eight-connected components were extracted from original-resolution masks. For the selected pilot definition, an anomalous image qualified only when every component occupied at most 0.5% of the entire original image area. Images containing both larger and smaller regions remained in overall anomaly recall. This metric measures image-level detection among eligible images, not localization recall of individual regions. Cutoffs of 0.1% and 1% were additionally examined as exploratory sensitivity analyses. The pilot choices were selected after results were available and were not preregistered.
 
 ## Pilot results
 
@@ -22,7 +22,7 @@ We also explored small-defect image recall. Eight-connected components were extr
 
 The three count-based columns use alpha=0.05, for which every configuration flagged 2/41 validation images. Greedy had the highest image AUROC in this pilot, while Full had the highest pixel AP. Greedy's two test false positives occurred in the underexposed group, corresponding to 2/5 normal images in that group and 2/35 across all lighting conditions. Greedy AUROC was 0.9867 under regular lighting and 0.6800 under underexposure; Full achieved 0.8667 under underexposure. These are descriptive observations from small groups, not evidence of statistical significance.
 
-At the 0.1% size cutoff no image qualified. At 1%, 56 images qualified, of which Full, Random, and Greedy detected 29, 26, and 30, respectively. Thus the reported sensitivity depends on the stated eligible set. All 105 anomalous masks retained positive pixels after preprocessing. However, seven masks sharing the bad/014 filename prefix lost 194 of 1,785 resized positive pixels during center cropping. Retaining a nonempty mask does not establish preservation of its full area.
+At the 0.5% cutoff, the 21 images corresponded to only three physical specimens observed under seven lighting conditions; the 8/21 Full and 7/21 Greedy results are exploratory. At the 0.1% size cutoff no image qualified. At 1%, 56 images qualified, of which Full, Random, and Greedy detected 29, 26, and 30, respectively. All 105 anomalous masks retained positive pixels after preprocessing. Seven masks sharing the bad/014 filename prefix lost 194 of 1,785 resized positive pixels during center cropping; all seven images were retained in pixel AP. Retaining a nonempty mask does not establish preservation of its full area.
 
 ## Limitations and pending evaluation
 

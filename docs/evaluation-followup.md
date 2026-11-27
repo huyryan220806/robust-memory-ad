@@ -26,4 +26,4 @@ Ngày 26/11/2026 · Đỗ Hoàng Phúc · Nhánh `evaluation/pilot`.
 3. Rà bản nháp tiếng Anh và các giới hạn trước khi chuyển cho Huy ghép bài.
 4. Đọc phần AU-PRO trước khi quyết định cách đưa metric này vào pipeline.
 
-Chưa có xác nhận Phúc đã tự kiểm thủ công hoặc nhóm đã phê duyệt giao thức. Hữu Phúc đã xác nhận quan hệ mẫu vật qua ánh sáng; xem [bàn giao mẫu vật](specimen-handoff.md). Huy/nhóm còn cần chốt thiết kế xác nhận; các run tiếp theo và số đo thiết bị vẫn cần phối hợp với Hữu Phúc và Tiến. Các tin nhắn bàn giao trước đó đã được Phúc gửi, nên tài liệu này không yêu cầu gửi lại.
+Chưa có xác nhận Phúc đã tự kiểm thủ công. Huy đã chọn quy tắc cho pilot; xem [quyết định](pilot-huy-decision.md). Hữu Phúc đã xác nhận quan hệ mẫu vật qua ánh sáng; xem [bàn giao mẫu vật](specimen-handoff.md). Thiết kế đánh giá xác nhận và các run tiếp theo vẫn cần phối hợp với nhóm.

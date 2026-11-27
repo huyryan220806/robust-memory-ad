@@ -1,6 +1,6 @@
 # Kết quả đánh giá pilot01 · Đỗ Hoàng Phúc
 
-Ngày 26/11/2026. Xem [giao thức và lệnh chạy](evaluation.md). **Các phép đo tại ngưỡng và phân nhóm lỗi nhỏ là thăm dò theo đề xuất v 0.3, chờ nhóm rà; chưa phải kết quả với giao thức chính thức.**
+Ngày 26/11/2026; cập nhật 27/11/2026. Xem [giao thức và lệnh chạy](evaluation.md). Huy đã chọn mốc 5% và định nghĩa lỗi nhỏ 0,5% cho pilot sau khi có kết quả; đây vẫn là phân tích thăm dò, không phải kết quả xác nhận hoặc giao thức đăng ký trước. [Ghi nhận phản hồi](pilot-huy-decision.md).
 
 ## Kiểm đầu vào
 
@@ -46,7 +46,7 @@ Diện tích mỗi vùng liên thông 8 chia toàn ảnh gốc. Ảnh được c
 | 0.5% | 21 | 8/21 (38.10%) | 5/21 (23.81%) | 7/21 (33.33%) |
 | 1% | 56 | 29/56 (51.79%) | 26/56 (46.43%) | 30/56 (53.57%) |
 
-Không thay 0/0 bằng 0%. Việc đổi định nghĩa làm thay đổi tập mẫu và có thể đổi thứ tự phương pháp; nhóm phải ghi rõ định nghĩa trước đợt đánh giá xác nhận tiếp theo. Đây là recall cấp ảnh, không phải đo việc định vị trúng từng vùng nhỏ.
+Không thay 0/0 bằng 0%. Tại mức 0,5%, 21 ảnh thuộc ba lọ vật lý chụp qua bảy mức sáng, vì vậy kết quả 8/21 và 7/21 chỉ là thăm dò. Việc đổi định nghĩa làm thay đổi tập mẫu và có thể đổi thứ tự phương pháp; nhóm phải ghi rõ định nghĩa trước đợt đánh giá xác nhận tiếp theo. Đây là recall cấp ảnh, không phải đo việc định vị trúng từng vùng nhỏ.
 
 ## Ca lỗi và hình
 
@@ -63,7 +63,7 @@ Hai hình overlay `case_fp.png` và `case_fn.png` đã tạo và kiểm tại m�
 
 - 7 test qua: AUROC, ngưỡng có điểm bằng nhau, dữ liệu calibration sai, liên thông 8, mất vùng do crop, thiếu/trùng asset, khớp resize/crop với torchvision.
 - 24 hàng pixel_metrics,216 hàng quality (3 run × 3 alpha × 3 cutoff × 8 nhóm),9 ngưỡng,1.260 quyết định ảnh và 648 hash mask/map.
-- Huy cần rà quy tắc calibration, mức cắt/ROI, ảnh nhiều cỡ lỗi và phạm vi pilot/final. Không xem lời phê duyệt sau khi đã xem test là đăng ký giao thức trước thí nghiệm.
+- Huy đã chọn calibration 5%, cutoff 0,5%, cách tính ảnh nhiều cỡ lỗi và giữ ảnh bị crop cho pilot. ROI/cách đánh giá xác nhận tiếp theo vẫn cần thống nhất. Không xem phản hồi sau khi đã xem test là đăng ký giao thức trước thí nghiệm.
 - Hữu Phúc đã xác nhận cùng lọ/cảnh qua bảy mức sáng; cần làm rõ cách lấy mẫu và quan hệ mẫu vật giữa các split trước khi suy luận thống kê. Xem [ghi nhận bàn giao](specimen-handoff.md).
 - Tiến ghép theo run ID và báo thời gian đo riêng; không dùng thời gian query theo batch của baseline làm p50/p95.
 - AU-PRO, seed/category bổ sung, phương pháp mới và test nhãn ẩn thuộc giai đoạn tiếp theo; không được trình bày như đã hoàn tất ở đây.

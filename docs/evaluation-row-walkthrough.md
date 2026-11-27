@@ -2,7 +2,7 @@
 
 Ngày 26/11/2026 · Đỗ Hoàng Phúc · pilot01, vial, seed 0.
 
-**Đã tính lại bằng script độc lập với evaluator và khớp số liệu. Phúc và đồng tác giả chưa ký xác nhận kiểm thủ công.** Ngưỡng và định nghĩa lỗi nhỏ vẫn thuộc giao thức thăm dò `v0.3-proposed`.
+**Đã tính lại bằng script độc lập với evaluator và khớp số liệu. Phúc và đồng tác giả chưa ký xác nhận kiểm thủ công.** Huy đã chọn mốc 5% và cutoff 0,5% cho pilot thăm dò sau khi có kết quả; dữ liệu gốc vẫn mang nhãn lịch sử `v0.3-proposed`.
 
 ## Hàng cần giải thích
 

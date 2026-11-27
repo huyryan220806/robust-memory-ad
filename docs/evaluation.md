@@ -6,7 +6,7 @@ Ngày 26/11/2026. Nhánh `evaluation/pilot`, phát triển từ baseline commit 
 
 Đánh giá đầu ra ba baseline Full/Random/Approximate Greedy trên vial seed 0. Không chạy lại backbone, tạo bank hoặc đo hiệu năng. Random và Greedy đều có 2.281 patch theo config, Full có 228.144 patch. Các số thời gian trong bàn giao baseline là truy vấn đặc trưng cache theo batch và tạo map, không phải p50/p95 độ trễ end-to-end.
 
-**Giao thức v0.3-proposed là đề xuất thăm dò chờ Huy và nhóm rà.** Không có phê duyệt ngưỡng chính thức hoặc định nghĩa lỗi nhỏ trong bàn giao hiện tại. Để công việc tiếp tục và có kết quả cụ thể để rà, chạy toàn bộ lưới đã ghi trong [config](../configs/evaluation/pilot01-proposed.json), không chọn cấu hình theo kết quả test tốt nhất. Các quyết định sau khi xem kết quả này phải được ghi là quyết định trên dữ liệu phát triển. `test_public` đã được xem nên không còn là tập đánh giá cuối chưa từng sử dụng.
+**Ngày 27/11/2026, Huy đã chọn quy tắc 5% và cutoff 0,5% cho pilot**, đồng thời yêu cầu giữ bảy ảnh bị crop một phần khi tính pixel AP. Xem [ghi nhận quyết định](pilot-huy-decision.md). Bộ kết quả và [config v0.3-proposed](../configs/evaluation/pilot01-proposed.json) là bản xuất trước phản hồi, giữ nguyên tên, hash và nhãn trạng thái lịch sử; chỉ chọn hàng 5%/0,5% để báo cáo chính cho pilot. Các mức khác là phân tích độ nhạy thăm dò. Quyết định được đưa ra sau khi kết quả test đã được xem, không phải đăng ký trước; `test_public` không còn là tập đánh giá cuối chưa từng sử dụng.
 
 ## Nguồn dữ liệu và cách chạy
 
@@ -63,7 +63,7 @@ FPR = số good cảnh báo / tổng good. Recall tất cả lỗi = số bad c�
 
 Đọc mask gốc grayscale, yêu cầu giá trị chỉ {0,255}, kích thước PIL W×H=1400×1900, numpy H×W=(1900,1400). Nguồn baseline dùng `ToTensor()>0.5`; evaluator dùng raw>=128, tương đương với các mask này. Không ngầm áp raw>0 nếu mask có giá trị khác.
 
-Đề xuất vùng liên thông 8-neighbor trên mask gốc. Diện tích mỗi vùng chia cho **toàn bộ ảnh gốc**, không dùng mask sau crop để định nghĩa kích thước. Thử ba mức cắt {0,1%;0,5%;1%}. Ảnh thuộc nhóm “chỉ có lỗi nhỏ” khi có vùng lỗi và **mọi** vùng lỗi có tỷ lệ <= mức cắt. Ảnh có cả vùng lớn và nhỏ không vào mẫu số này. Diện tích mask và tỷ lệ lớn nhất được xuất để nhóm có thể thay đổi quyết định và chạy lại. Đây là quy tắc đề xuất, chưa được Huy duyệt.
+Vùng liên thông 8-neighbor trên mask gốc; diện tích mỗi vùng chia cho **toàn bộ ảnh gốc**. Huy chọn mức cắt 0,5% cho pilot: ảnh chỉ có lỗi nhỏ khi có vùng lỗi và **mọi** vùng có tỷ lệ <= 0,5%. Ảnh có cả vùng lớn và nhỏ không vào mẫu số lỗi nhỏ, nhưng vẫn thuộc mẫu số recall tất cả lỗi. Các mức 0,1% và 1% được giữ như phân tích độ nhạy thăm dò.
 
 Để khớp map: PIL NEAREST resize 256×256, crop box `(16,16,240,240)` thành224×224. Kiểm số pixel trước/sau crop và theo dõi ID từng vùng gốc qua resize/crop. Mask còn ít nhất một pixel không đồng nghĩa giữ nguyên mọi vùng/diện tích. Ảnh lỗi bị mất vùng do crop vẫn nằm trong phép đo cấp ảnh theo định nghĩa gốc; không âm thầm bỏ ca khó.
 

@@ -1,6 +1,6 @@
 # Kiểm bank và ghép chất lượng — bàn giao của Tiến
 
-Cập nhật **26/11/2026**. **Huy phụ trách train và Colab**, theo Tiến xác nhận. Các lệnh dưới đây phục vụ kiểm bank đã bàn giao và xử lý bảng của Tiến; không chạy train, chọn lại coreset, dựng lại bank hoặc notebook Colab.
+Cập nhật **27/11/2026**; bằng chứng kiểm bank ngày 26/11 giữ nguyên. **Huy phụ trách train và Colab**, theo Tiến xác nhận. Các lệnh dưới đây phục vụ kiểm bank đã bàn giao và xử lý bảng của Tiến; không chạy train, chọn lại coreset, dựng lại bank hoặc notebook Colab.
 
 ## Nguồn đã nhận
 
@@ -54,9 +54,9 @@ Không cộng hàng `lighting_group=all` với các nhóm con. `--lighting-group
 
 `*.csv.audit.json` lưu hash đầu vào, commit nguồn chất lượng nếu được cung cấp, số measurement, số hàng ghép và xác nhận không thực hiện phép gộp. Đợt kiểm schema trên 216 hàng thật dùng metadata giả lập không có ms/MB; không tạo kết quả hiệu năng giả.
 
-## 4. Phần còn chờ Huy
+## 4. Giao thức đã chốt, đang chờ log Huy chuyển
 
-Phạm vi đo chính thức chưa được chốt: ảnh RAM sau decode/convert RGB, tiền xử lý, các chuyển thiết bị bắt buộc của pipeline và thời điểm score/map CPU sẵn. Bộ đo độc lập đã có nhưng chưa có benchmark PatchCore chính thức của Tiến. Huy vận hành train/Colab; Tiến bàn giao công cụ và nhận log gốc để tổng hợp sau khi thống nhất phạm vi.
+Ngày 27/11, Huy xác nhận batch 1, ảnh RGB đã decode trong RAM đến score/map 224×224 đã về CPU; cùng 140 test_public đủ bảy nhóm sáng; backbone L4, FAISS CPU 4 luồng; tách VRAM PyTorch và RSS tiến trình. Cấu hình và lệnh nhận/tổng hợp log nằm trong [giao thức profiling](profiling-protocol.md). Huy vận hành Colab và quyền truy cập, sẽ chia sẻ thư mục kết quả sau lượt đo. Hiện chưa có p50/p95 hoặc bộ nhớ L4 thực đo để tổng hợp.
 
 ## Kết quả kiểm CPU ngày 26/11/2026
 

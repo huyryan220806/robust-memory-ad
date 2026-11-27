@@ -1,6 +1,6 @@
 # Bộ đo profiling độc lập — Lê Quyết Tiến
 
-Cập nhật **26/11/2026**. Dụng cụ đo đã tự kiểm trên CPU; phần kiểm bank và ghép bảng chất lượng thật được bổ sung trong [hướng dẫn bàn giao](profiling-handover.md). **Chưa có benchmark PatchCore hoặc số đo L4 của Tiến.** Huy phụ trách train và Colab; phần của Tiến là dụng cụ đo, kiểm đầu vào và tổng hợp log.
+Cập nhật **27/11/2026**. Huy đã [chốt giao thức L4](profiling-protocol.md): batch 1, 140 ảnh test_public, RGB RAM → score/map CPU, backbone L4 và FAISS CPU 4 luồng. Dụng cụ đo đã tự kiểm trên CPU; [ba bank đã kiểm nạp](profiling-handover.md). **Chưa nhận log benchmark L4 thực đo.** Huy phụ trách train/Colab; Tiến kiểm và tổng hợp log bằng `scripts.collect_profiling`.
 
 ## Phần đã hoàn thành và có trong PR
 
@@ -10,7 +10,7 @@ Cập nhật **26/11/2026**. Dụng cụ đo đã tự kiểm trên CPU; phần 
 - Helper `measure_selection` ghi thời gian một callback chọn coreset với metadata do bên gọi cung cấp; đã kiểm bằng callback giả lập.
 - Bảy phép kiểm tự động và log smoke CPU gồm 10 warm-up + 50 mẫu đo.
 
-Đã nhận bank/config và schema chất lượng từ hai bạn Phúc. PR có công cụ kiểm bank và ghép chất lượng theo schema đã xác nhận; phạm vi timing mô hình chính thức vẫn chờ Huy. Không bổ sung notebook Colab vào phần việc của Tiến.
+Đã nhận bank/config và schema chất lượng từ hai bạn Phúc, cùng phạm vi timing được Huy xác nhận. PR có công cụ kiểm bank, nhận log L4 và ghép chất lượng theo schema đã xác nhận. Dùng notebook do Huy phụ trách; không bổ sung notebook Colab vào phần việc của Tiến.
 
 ## Chạy phần đã tự kiểm
 
@@ -48,7 +48,7 @@ Môi trường smoke: Windows 11, i5-12450H, RAM 16.866.680.832 byte, Python 3.1
 
 `run(config, adapter, output, base)` là giao diện tổng quát của bộ đo, chưa phải pipeline nhóm đã tích hợp. Adapter cung cấp `load(config, base)`, `decode(spec, base)`, `predict(input)`, `image_score(result)` và `synchronize()`. Bộ đo gọi load một lần, đối chiếu điểm trước warm-up và giữ warm-up ngoài CSV đo chính. Đường dẫn đầu vào tương đối với thư mục config.
 
-Các trường `run_id`, `measurement_id`, `image_group`, `device` trong CSV là metadata do bên gọi cung cấp. Việc ánh xạ chúng sang baseline/quality của nhóm chưa được chốt trong bản này. Không dùng giá trị giả lập làm mã hoặc số liệu mô hình thật.
+Các trường `run_id`, `measurement_id`, `image_group`, `device` trong CSV là metadata do bên gọi cung cấp. Giao thức pilot dùng run_id baseline, measurement_id riêng từng lượt và category=vial/split=test_public để ghép quality. Hiệu năng toàn run được đặt cạnh các hàng lighting/threshold/cutoff có phân biệt đầy đủ. Không dùng giá trị giả lập làm số liệu mô hình thật.
 
 ## Phạm vi xác minh và giới hạn
 
@@ -56,4 +56,4 @@ Các trường `run_id`, `measurement_id`, `image_group`, `device` trong CSV là
 
 RSS dùng psutil lấy mẫu mỗi 5 ms trong tiến trình hiện tại. Peak quan sát có thể bỏ sót cấp phát ngắn và gồm cả chi phí ghi log; không bao quát tiến trình con. Nhánh CUDA và bộ đếm PyTorch có trong dụng cụ tổng quát nhưng **chưa được chạy xác minh trên GPU**; không có khẳng định về tổng peak VRAM, FAISS hoặc kết quả L4 từ bản bàn giao này.
 
-Chỉ bổ sung phạm vi đo mô hình, tolerance, config và lệnh chạy thật sau khi nhận đủ xác nhận từ nhóm. Các bản nháp phụ thuộc đầu vào đó được giữ cục bộ theo yêu cầu của Tiến.
+Phạm vi đo, tolerance và cấu hình chính thức hiện có tại [giao thức đã chốt](profiling-protocol.md). Bộ nhận log được kiểm bằng fixture mô phỏng; chỉ xuất bảng L4 sau khi Huy giao đủ log thật đạt kiểm tra. Các bản nháp cũ giữ cục bộ để tra lịch sử.

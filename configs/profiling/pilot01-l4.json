@@ -1,0 +1,57 @@
+{
+  "protocol_id": "pilot01-l4-cpu-faiss-v1",
+  "confirmed_date": "2026-11-27",
+  "confirmed_by": "Nguyen Dinh Huy, relayed by Le Quyet Tien",
+  "source_huy_commit": "bb443f244770e74681fc1ad46c6dfc1c50f1020c",
+  "baseline_commit": "6d7e8d8f0127838aae8f9c2dd3f2c85a87b94141",
+  "patchcore_commit": "fcaa92f124fb1ad74a7acf56726decd4b27cbcad",
+  "profiler_source_sha256": "2a631768cc50912b3cc781b4e48b2f8990f955e77074f106618524bd3f95ff39",
+  "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281",
+  "device": "cuda:0",
+  "device_name": "NVIDIA L4",
+  "require_l4": true,
+  "batch_size": 1,
+  "dtype": "float32",
+  "seed": 0,
+  "resolution": [224, 224],
+  "category": "vial",
+  "split": "test_public",
+  "images": 140,
+  "warmup": 10,
+  "lighting_groups": ["regular", "overexposed", "underexposed", "shift_1", "shift_2", "shift_3", "shift_4"],
+  "images_per_lighting": 20,
+  "query": "FAISS CPU flat L2 1-NN; 4 threads",
+  "score_atol": 0.0001,
+  "score_rtol": 0,
+  "timing_boundary": {
+    "start": "decoded RGB image in host RAM",
+    "stop": "image score and smoothed 224x224 map ready in host RAM",
+    "included": ["resize", "crop", "normalize", "device transfers", "backbone", "FAISS CPU query", "score", "map interpolation and CPU smoothing"],
+    "excluded": ["disk reads", "image decode and RGB conversion", "model and bank loading", "CSV writes"],
+    "cuda_synchronize": "before t0 and after the last computation"
+  },
+  "memory": {
+    "gpu": "PyTorch allocator allocated/reserved baseline and absolute peak; reset after warmup",
+    "cpu": "current-process RSS baseline and sampled peak at 5 ms, including logger overhead",
+    "faiss_gpu": "outside this protocol; separate measurement and PID-level VRAM sampling required"
+  },
+  "params_bytes": 230,
+  "params_sha256": "7c2728899e9e4aeca619d5c6f24ad47456c1603cc16e4c846a80f002c6ddc8b4",
+  "runs": {
+    "pilot01-full-s0": {
+      "num_patches": 228144,
+      "index_bytes": 934477869,
+      "index_sha256": "c69480c48fb9f490a09a4516fdf330754e6a0c7d627b38b9dd0e6b55a3df8718"
+    },
+    "pilot01-random-s0": {
+      "num_patches": 2281,
+      "index_bytes": 9343021,
+      "index_sha256": "211e06f2deb04c34821b94dde950d5db3bf5572ebfb0d6ab8d2e1f473b70dc6b"
+    },
+    "pilot01-greedy-s0": {
+      "num_patches": 2281,
+      "index_bytes": 9343021,
+      "index_sha256": "06b86b5133aaffb915172385628d5c70cb9d6ddd96c059b80bc670f9fbedfd99"
+    }
+  }
+}

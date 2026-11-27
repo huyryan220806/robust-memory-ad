@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*.npy
+*.npz
+*.faiss
+*.pkl
+*.pth
+*.pt
+.venv*/
+.local/
+artifacts/
+data/
+outputs/
+.ipynb_checkpoints/

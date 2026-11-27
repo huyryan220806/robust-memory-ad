@@ -1,0 +1,22 @@
+{
+  "kind": "handover_csv_integrity_only",
+  "manifest_rows": 472,
+  "predictions_rows": 543,
+  "eval_rows_per_run": 181,
+  "unique_image_ids": true,
+  "unique_run_image_pairs": true,
+  "finite_scores": true,
+  "same_order_across_runs": true,
+  "splits": {
+    "train": 291,
+    "validation": 41,
+    "test_public": 140
+  },
+  "images_content_checked": [
+    "vial/test_public/bad/011_overexposed"
+  ],
+  "full_dataset_images_checked": false,
+  "status": "passed",
+  "manifest_sha256": "5b7f15ef99071efddafa67f1de6918fd3cad33810571293beeed038193507e62",
+  "predictions_sha256": "53ca1125b283dd90931ee05f64a7912ffabedeb0efc5d7248faa3e5ece711281"
+}

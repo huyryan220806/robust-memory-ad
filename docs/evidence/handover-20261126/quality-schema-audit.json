@@ -1,0 +1,17 @@
+{
+  "kind": "quality_join_schema_check_only",
+  "quality_source_commit": "ae33ffaa53b50da82bce7e6d343778ee35d5e8a4",
+  "quality_sha256": "429a12ddd67d20ba94f56e7c88e63e19726d79fa393b899a2df1a88c488025e5",
+  "quality_rows": 216,
+  "quality_rows_per_run": 72,
+  "fixture_run_ids": [
+    "pilot01-full-s0",
+    "pilot01-greedy-s0",
+    "pilot01-random-s0"
+  ],
+  "expanded_rows": 216,
+  "preserves_blank_metrics": true,
+  "aggregation_performed": false,
+  "actual_efficiency_measurements": 0,
+  "status": "passed"
+}

@@ -1,0 +1,8 @@
+[
+  {
+    "image_id": "toy-1",
+    "expected": 79974,
+    "actual": 79974.0,
+    "passed": true
+  }
+]

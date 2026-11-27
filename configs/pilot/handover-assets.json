@@ -1,0 +1,101 @@
+{
+  "source_folder": "https://drive.google.com/drive/folders/171zEixi2Xb07Njhon9B_lsEORCbI6kz2",
+  "purpose": "single-image baseline reload; no training or timing claim",
+  "files": [
+    {
+      "id": "1-zf7QSpdplaS0GBkFrA-Uj2ka07Sggpc",
+      "path": "artifacts/pilot01/runs/pilot01-random-s0/bank/bank_info.json",
+      "bytes": 521
+    },
+    {
+      "id": "1Pu3scdF99OGyzalPynzDQSRhyOjjgJj1",
+      "path": "artifacts/pilot01/runs/pilot01-random-s0/bank/nnscorer_search_index.faiss",
+      "bytes": 9343021
+    },
+    {
+      "id": "1QVKOCh1MSu6xdytmtz7bSM0fD7J-dUZY",
+      "path": "artifacts/pilot01/runs/pilot01-random-s0/bank/patchcore_params.pkl",
+      "bytes": 230
+    },
+    {
+      "id": "1aBJSAdlegBC4tz3thfoPfLhM_UgEevPR",
+      "path": "artifacts/pilot01/runs/pilot01-random-s0/bank/selected_indices.csv",
+      "bytes": 103486
+    },
+    {
+      "id": "1DA-p6UkM--x-fyG57yqONY3ywkpVpXzp",
+      "path": "artifacts/pilot01/runs/pilot01-random-s0/bank/selected_indices.npy",
+      "bytes": 18376
+    },
+    {
+      "id": "1u3mukkOQOpMKtaW9lZJ6KEdMrX5-xEuF",
+      "path": "artifacts/pilot01/runs/pilot01-greedy-s0/bank/bank_info.json",
+      "bytes": 521
+    },
+    {
+      "id": "1C06MNi05N1fbxMsi_BayzBnRBv5U5dyq",
+      "path": "artifacts/pilot01/runs/pilot01-greedy-s0/bank/nnscorer_search_index.faiss",
+      "bytes": 9343021
+    },
+    {
+      "id": "19fivF4Uz-sWHKxFvejVMwAMYz_YYvIPy",
+      "path": "artifacts/pilot01/runs/pilot01-greedy-s0/bank/patchcore_params.pkl",
+      "bytes": 230
+    },
+    {
+      "id": "1O_V6IRRr6eRsNJnyTp-z46j6jWi8SBd8",
+      "path": "artifacts/pilot01/runs/pilot01-greedy-s0/bank/selected_indices.csv",
+      "bytes": 104583
+    },
+    {
+      "id": "1bKykEt6d27JbeyDHCykD-FBN5Mg4Wzqn",
+      "path": "artifacts/pilot01/runs/pilot01-greedy-s0/bank/selected_indices.npy",
+      "bytes": 18376
+    },
+    {
+      "id": "1x7HtT9uaNmJiQLI1ZTj4JaUWlLs07HxJ",
+      "path": "artifacts/pilot01/runs/pilot01-full-s0/bank/bank_info.json",
+      "bytes": 519
+    },
+    {
+      "id": "1XtVkwCfynKbXMO72S5DGA8dE8gHoWJ_K",
+      "path": "artifacts/pilot01/runs/pilot01-full-s0/bank/patchcore_params.pkl",
+      "bytes": 230
+    },
+    {
+      "id": "1Pa8qa8_97pylBPMcEM4s1RzIjf_vNzFV",
+      "path": "artifacts/pilot01/runs/pilot01-full-s0/bank/selected_indices.npy",
+      "bytes": 1825280
+    },
+    {
+      "id": "1RyW-5FEf_TsGtFEZkhwf8_Z0uxbQhbpo",
+      "path": "artifacts/pilot01/baseline_runs_summary.json",
+      "bytes": 8321
+    },
+    {
+      "id": "1fSNqN_xg8zFCY7lXLpuIOVXUUtVgn7E2",
+      "path": "artifacts/pilot01/predictions.csv",
+      "bytes": 89113
+    },
+    {
+      "id": "1krRC3DdNWs-CqUVeQxlHjqt3JFfGQNFj",
+      "path": "artifacts/pilot01/dataset_survey.json",
+      "bytes": 888
+    },
+    {
+      "id": "1SXSBxMjs7gKBK2ecEZlHRoUK0JJqkURR",
+      "path": "artifacts/pilot01/manifest_images.csv",
+      "bytes": 67330
+    },
+    {
+      "id": "1gGAZEbMS3br76sQaL4_BqzpNfGfPWDKe",
+      "path": "data/mvtec_ad_2/vial/test_public/bad/011_overexposed.png",
+      "bytes": 429536
+    },
+    {
+      "id": "1jLnJuMwNjvf87GiHt1uEmVPyW8qqmWwg",
+      "path": "artifacts/pilot01/runs/pilot01-full-s0/bank/nnscorer_search_index.faiss",
+      "bytes": 934477869
+    }
+  ]
+}

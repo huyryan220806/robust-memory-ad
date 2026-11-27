@@ -1,0 +1,20 @@
+{
+  "python": "3.12.5 (tags/v3.12.5:ff3bc82, Aug  6 2024, 20:45:27) [MSC v.1940 64 bit (AMD64)]",
+  "os": "Windows-11-10.0.26200-SP0",
+  "cpu": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+  "ram_total_bytes": 16866680832,
+  "packages": {
+    "torch": "2.12.1",
+    "torchvision": "0.27.1",
+    "numpy": "2.2.2",
+    "psutil": "7.2.2",
+    "faiss-cpu": null,
+    "faiss-gpu": null,
+    "Pillow": "12.3.0"
+  },
+  "nvidia_smi": "NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 610.78",
+  "profile_source_sha256": "2a631768cc50912b3cc781b4e48b2f8990f955e77074f106618524bd3f95ff39",
+  "profiling_commit": "7d46ffcf54ee11c56f025b8c14b6bf15b165878c",
+  "profiling_git_status": "?? .gitignore\n?? docs/\n?? examples/\n?? notebooks/\n?? requirements-profiling.txt\n?? scripts/\n?? tests/",
+  "created_utc": "2026-11-25T07:00:57.249269+00:00"
+}

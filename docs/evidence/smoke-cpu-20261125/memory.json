@@ -1,0 +1,12 @@
+{
+  "rss": {
+    "tool": "psutil.Process.memory_info().rss",
+    "scope": "current process; sampled every 5 ms; inference loop plus logging overhead",
+    "baseline_bytes": 30519296,
+    "peak_observed_bytes": 30552064,
+    "peak_observed_increment_bytes": 32768,
+    "interval_s": 0.005
+  },
+  "torch_cuda": null,
+  "gpu_process_peak": "not measured; external index VRAM requires process-level instrumentation"
+}

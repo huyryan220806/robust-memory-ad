@@ -1,0 +1,3 @@
+# Install in the baseline environment supplied by Huu Huynh Phuc.
+# PyTorch, CUDA, FAISS and PatchCore versions must follow that environment.
+psutil==7.2.2
